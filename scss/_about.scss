@@ -1,0 +1,25 @@
+
+ 
+body {
+    background-image: url(/dist/Background_photos/9.jpg);
+}  
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+        'bioimage bio bio'
+        'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+#about{
+    display:grid;
+
+}
+.text{
+    grid-area: text;
+    font-weight: 400;
+}
+

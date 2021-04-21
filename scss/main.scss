@@ -1,0 +1,334 @@
+@import 'config';
+@import 'menu';
+@import 'about'; 
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    @include background;
+    color:set-text-color($primary-color);
+ 
+    height: 100%; 
+    width: 100%;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height:1.5;
+
+}  
+//Headings
+h1,
+h2 {
+    margin:0;
+    font-weight: 500;
+
+    &.lg-heading {
+        margin-top: 5rem;
+        font-size: 6rem;
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding:0.2rem 1rem;
+    }
+}
+
+a{
+    color: set-text-color($primary-color);
+    text-decoration: none;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index:2; 
+    width: 100%;
+}
+
+.text-secondary {
+    color:$secondary-color;
+}
+
+
+
+main{
+    display: grid;
+    grid-gap: 0rem;
+    grid-template-areas: 'headings photo_slides' 'blockquote dots' ;
+    grid-template-columns: repeat(2, 1fr);
+    
+    padding: 0; 
+
+    //height:100%;
+    min-height: calc(100vh - 60px);
+    .headings{
+        grid-area:headings;
+        padding-left: 5rem;
+        padding-top:4rem;
+    }
+    .Photo_slides{ 
+        grid-area: photo_slides;
+        display: block;
+        align-content: center;
+        width: 100%;
+        height: 100%; 
+        padding-top: 150px;
+        
+        // keep relation 3:4
+        $imgpadding: 233px 320px;
+        .Slide{ 
+            z-index:3;
+            height: 100%;
+            .photo1{
+                //position: absolute;
+                background-image: url(../Portrait_photos/Selfie.jpg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center; 
+                p{
+                    padding: $imgpadding;
+                }
+            }
+            .photo2{
+                //position: absolute;
+                background-image: url(../Portrait_photos/Cambodia.jpg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                p{
+                    padding: $imgpadding;
+                }
+            }
+            .photo3{
+                //position: absolute;
+                background-image: url(../Portrait_photos/Finland.jpg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;  
+                p{
+                    padding: $imgpadding;
+                }  
+            }
+            .photo4{
+                //position: absolute;
+                background-image: url(../Portrait_photos/Spain.jpg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;                 
+                p{
+                    padding: $imgpadding;
+                }  
+            }
+        }
+        
+          .fade {
+            -webkit-animation-name: slide;
+            -webkit-animation-duration: 111s;
+            animation-name: slide;
+            animation-duration: 1s;
+          }
+          @-webkit-keyframes slide {
+            from {opacity: 0;}
+            to {opacity: 100;}
+          }
+          
+          @keyframes slide {
+            from {opacity: 0;}
+            to {opacity: 100;}
+          }
+        }  
+        .dots{
+            display:flex;
+            justify-content: center;
+            align-items: flex-start;
+            grid-area: dots;
+            width: 100%;
+            margin-bottom: 25px;
+        }  
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;             
+            margin: 0 2px;            
+            background-color: #bbb; 
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.4s ease;
+        }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+    
+    .icons {
+        margin-top: 1rem;
+        position: fixed;
+        left: 0;
+        width: 1rem;
+        bottom: 40px;
+        a {
+            
+            padding: 2rem;
+            line-height: 1rem;
+            color: lighten($secondary-color, 30);             
+            &:hover {
+                color: $secondary-color;
+                @include easeOut();                
+            }
+            i{margin-bottom: 1rem;}
+
+        }
+
+    }
+    .Timeline {
+        visibility: hidden;
+    }
+    &#home{
+        //overflow: hidden;
+        h1 {
+            margin-top:20vh;
+        }
+    }
+} 
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+        'bioimage bio bio'
+        'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+
+.blockquote {
+    grid-area: blockquote;
+    display: inline;
+    font-style: oblique 50deg;
+    font-size: 20px;    
+    blockquote::before {
+        content: open-quote;
+      }
+      blockquote::after {
+        content: close-quote;
+      }
+    blockquote {
+        margin:0;
+        quotes: "“" "”" "‘" "’";
+    }
+    
+}
+
+.bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+}
+
+.bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+
+}
+
+.job-1 {
+    grid-area: job1;
+}
+.job-2 {
+    grid-area: job2;
+}
+.job-3 {
+    grid-area: job3;
+}
+
+.job {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+} 
+
+// Work/Projects
+.projects {
+    display: grid;
+    grid-gap: 0.7rem;
+
+    img {
+        width: 100%;
+        border: 3px #fff solid;
+
+        &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut;
+
+        }
+    }
+} 
+
+// Button Styles
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    @include easeOut;
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color($secondary-color);
+    }
+
+}
+ 
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333;
+}
+ 
+#main-footer {
+    text-align: center;
+    padding: 0.19rem;
+    position: fixed; 
+    width: 100%;
+    background: rgb(98, 78, 102);
+    color: #fff;
+    height: 25px;
+    bottom: 0;
+    font-size: 12px;
+}
+
+// Contact Page
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div {
+        font-size: 2rem;
+        border: 3px #fff solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include easeOut;
+        &:hover {
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            span {
+                color:set-text-color($secondary-color);
+            }
+        }
+    }
+
+}
+
+@import 'mobile';

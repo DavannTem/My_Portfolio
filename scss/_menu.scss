@@ -1,0 +1,56 @@
+// Menu Overlay
+.menu {
+    position: fixed;
+    top:0;
+    width: 100%;
+    background: darken($primary-color, 10);  
+    visibility: visible; 
+
+    &-nav {
+        display: flex; 
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60px;
+        //overflow: hidden;
+        
+    }
+    
+    &-nav {
+        margin-top: 3rem;
+        padding: 0;
+        list-style: none;
+        @include easeOut;
+    }
+
+    .nav-item {
+        
+        @include easeOut;
+        &.current > a {
+            color: $secondary-color;
+            text-decoration: underline;
+        } 
+        
+        &:hover {
+            background: $secondary-color;
+        } 
+    } 
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 16px; 
+        padding: 0 1rem;
+        text-transform: capitalize;
+        font-weight: 300;
+        color: set-text-color($primary-color);
+        text-decoration: none;
+        @include easeOut; 
+
+        &:hover {
+            color: #fff //set-text-color($secondary-color);
+        } 
+    }
+  
+}  

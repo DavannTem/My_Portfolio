@@ -1,14 +1,12 @@
 @import 'config';
 @import 'menu';
-@import 'about'; 
 * {
     box-sizing: border-box;
 }
  
 body {
-    @include background;
-    color:set-text-color($primary-color);
- 
+    background-color: $color1;
+    color:set-text-color($color1); 
     height: 100%; 
     width: 100%;
     margin: 0;
@@ -34,7 +32,7 @@ h2 {
 }
 
 a{
-    color: set-text-color($primary-color);
+    color: set-text-color($color1);
     text-decoration: none;
 }
 
@@ -46,7 +44,7 @@ header{
 }
 
 .text-secondary {
-    color:$secondary-color;
+    color:$color2;
 }
 
 
@@ -54,9 +52,10 @@ header{
 main{
     display: grid;
     grid-gap: 0rem;
-    grid-template-areas: 'headings photo_slides' 'blockquote dots' ;
+    grid-template-areas: 
+    'headings photo_slides' 
+    'blockquote dots' ;
     grid-template-columns: repeat(2, 1fr);
-    
     padding: 0; 
 
     //height:100%;
@@ -72,7 +71,7 @@ main{
         align-content: center;
         width: 100%;
         height: 100%; 
-        padding-top: 150px;
+        padding-top: 100px;
         
         // keep relation 3:4
         $imgpadding: 233px 320px;
@@ -91,7 +90,7 @@ main{
             }
             .photo2{
                 //position: absolute;
-                background-image: url(../Portrait_photos/Cambodia.jpg);
+                background-image: url(../Portrait_photos/Cambodia.png);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
@@ -147,8 +146,8 @@ main{
         }  
         .dot {
             cursor: pointer;
-            height: 15px;
-            width: 15px;             
+            height: 12px;
+            width: 12px;             
             margin: 0 2px;            
             background-color: #bbb; 
             border-radius: 50%;
@@ -170,9 +169,9 @@ main{
             
             padding: 2rem;
             line-height: 1rem;
-            color: lighten($secondary-color, 30);             
+            color: lighten($color2, 25);             
             &:hover {
-                color: $secondary-color;
+                color: $color2;
                 @include easeOut();                
             }
             i{margin-bottom: 1rem;}
@@ -207,6 +206,9 @@ main{
     display: inline;
     font-style: oblique 50deg;
     font-size: 20px;    
+    column-gap: 20px;
+    color: $color4;
+
     blockquote::before {
         content: open-quote;
       }
@@ -220,86 +222,16 @@ main{
     
 }
 
-.bio-image {
-    grid-area: bioimage;
-    margin: auto;
-    border-radius: 50%;
-    border: $secondary-color 3px solid;
-}
 
-.bio {
-    grid-area: bio;
-    font-size: 1.5rem;
-
-}
-
-.job-1 {
-    grid-area: job1;
-}
-.job-2 {
-    grid-area: job2;
-}
-.job-3 {
-    grid-area: job3;
-}
-
-.job {
-    background: lighten($primary-color, 5);
-    padding: 0.5rem;
-    border-bottom: $secondary-color 5px solid;
-} 
-
-// Work/Projects
-.projects {
-    display: grid;
-    grid-gap: 0.7rem;
-
-    img {
-        width: 100%;
-        border: 3px #fff solid;
-
-        &:hover {
-            opacity: 0.5;
-            border-color: $secondary-color;
-            @include easeOut;
-
-        }
-    }
-} 
-
-// Button Styles
-.btn {
-    display: block;
-    padding: 0.5rem 1rem;
-    border: 0;
-    margin-bottom: 0.3rem;
-    @include easeOut;
-    &:hover {
-        background: $secondary-color;
-        color: set-text-color($secondary-color);
-    }
-
-}
- 
-.btn-dark {
-    @extend .btn;
-    background: darken($primary-color, 50);
-    color: #fff;
-}
-
-.btn-light {
-    @extend .btn;
-    background: lighten($primary-color, 50);
-    color: #333;
-}
  
 #main-footer {
     text-align: center;
+    
     padding: 0.19rem;
     position: fixed; 
     width: 100%;
-    background: rgb(98, 78, 102);
-    color: #fff;
+    background: $color3;
+    color: $color4;
     height: 25px;
     bottom: 0;
     font-size: 12px;
@@ -321,14 +253,16 @@ main{
         @include easeOut;
         &:hover {
             padding: 0.5rem 1.5rem;
-            background: $secondary-color;
-            color: set-text-color($secondary-color);
+            background: $color2;
+            color: set-text-color($color2);
             span {
-                color:set-text-color($secondary-color);
+                color:set-text-color($color2);
             }
         }
     }
 
 }
 
+@import 'about'; 
+@import 'contact';
 @import 'mobile';

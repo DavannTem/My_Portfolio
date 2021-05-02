@@ -1,25 +1,160 @@
 
- 
-body {
-    background-image: url(/dist/Background_photos/9.jpg);
-}  
 
-.about-info {
+#about {
     display: grid;
     grid-gap: 30px;
     grid-template-areas:
-        'bioimage bio bio'
-        'job1 job2 job3';
-    grid-template-columns: repeat(3, 1fr);
+        'headings headings'
+        'texts texts'
+        'worklogo worklist'
+        'studylogo studylist'
+        'CVlink CVlink';
+        
+    grid-template-columns: repeat(2, 1fr);
+    margin-right: 17rem;
+    margin-left: 5rem;
+    text-align: justify;
     
 }
 
-#about{
-    display:grid;
 
-}
-.text{
-    grid-area: text;
+.texts{
+    grid-area: texts;
     font-weight: 400;
+    
 }
 
+hr{
+width: 220%;  
+height: 1px;
+border: 0;
+border-top: 1px solid rgba(212, 211, 211, 0.795);
+color: $color2;
+margin-bottom: 120px;  
+margin-top: 10px; 
+margin-left: 50px;  
+margin-right: 50px;
+}  
+
+
+
+//Works
+
+
+.work-logo {
+    grid-area: worklogo;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    width: 70%;
+    height:850px;
+    background: #CC8686;
+    color: #000;
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: -30px;
+    margin-bottom:0;
+    margin-left: 20%;
+    
+}
+
+.work-list{
+    grid-area: worklist;  
+    margin-right: -15%;
+    margin-left: 10%;
+    margin-top: 3%;
+
+}
+
+.company{
+    color: #eb4076;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.job-titles{
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.job-details{
+    margin-bottom: 3rem;
+    
+}
+
+
+
+//Studies
+.study-logo{
+    grid-area: studylogo;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    width: 70%;
+    height: 500px;
+    background: #B19D99;
+    color: #000;
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-left: 20%;
+   
+} 
+
+.study-list{
+    grid-area: studylist;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.school-name{
+    color:cadetblue;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.major{
+    font-weight: 500;
+    margin-bottom:0.51rem;
+}
+
+.year{
+    margin-bottom: 3rem;
+}
+.cv{
+    grid-area: CVlink;
+    hr{
+        width: 110%;
+        margin-bottom: 100px;  
+        margin-top: 40px;
+        
+    }
+}
+
+//CV download
+.CVlink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+    background:$color4;
+    width: 30%;
+    height: 100px;
+    color: $color1;
+    margin-left: 45%;
+    
+
+    @include easeOut;
+    &:hover {
+        padding: 0.5rem 1.5rem;
+        background: $color2;
+        }
+    
+    
+    
+
+}

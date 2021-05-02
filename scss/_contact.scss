@@ -1,0 +1,63 @@
+
+#contact{
+    display: grid;
+    grid-template-areas: 'headings' 'ctable';
+    grid-template-columns: repeat(1, 1fr);
+    margin-right: 5rem;
+       
+    .headings{
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+
+
+form{
+    width: 50%;
+    margin-left: 25rem;
+    
+}
+
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 10px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+label {
+
+    text-align: left;
+}
+
+  input[type=submit] {
+    background-color: $color2;
+    color: white;
+    padding: 20px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 25%;
+    margin-left: 16rem;
+    
+  }
+  
+  
+  input[type=submit]:hover {
+    background-color: darken($color2, 20);
+  }
+  
+  /* Add a background color and some padding around the form */
+  .contact-table {
+    grid-area: ctable;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    
+  }

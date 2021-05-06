@@ -1,5 +1,6 @@
 # My_Portfolio
 
-##Codes and documents for my personal portfolio.
+## Codes and documents for my portfolio website.
 
-###This is created for my Front-End course's assignment. It is also used as my resume, which contains a short profile of me, previous experiences and studies. My CV can be also download from there in PDF format.
+It is created for my Front-End course's assignment and is also used as my resume which contains a short profile of me, previous experiences and studies. My CV can be also download from there in PDF format.
+You can run my portfolio website through this link: https://davanntem.github.io/My_Portfolio/ 

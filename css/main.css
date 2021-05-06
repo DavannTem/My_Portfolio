@@ -32,7 +32,7 @@
     padding: 0 1rem;
     text-transform: capitalize;
     font-weight: 350;
-    color: #bbb;
+    color: #f2f2f2;
     text-decoration: none;
     transition: all 0.3s ease-out; }
     .menu .nav-link:hover {
@@ -42,7 +42,7 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #f1eff3;
+  background-color: #f2f2f2;
   color: #000;
   height: 100%;
   width: 100%;
@@ -52,8 +52,7 @@ body {
 
 h1,
 h2 {
-  margin: 0;
-  font-weight: 500; }
+  margin: 0; }
   h1.lg-heading,
   h2.lg-heading {
     margin-top: 5rem;
@@ -78,8 +77,8 @@ header {
 
 main {
   display: grid;
-  grid-gap: 0rem;
-  grid-template-areas: 'headings photo_slides'  'blockquote dots';
+  min-height: calc(100vh - 60px);
+  grid-template-areas: 'headings photo_slides'  'headings dots' 'learn learn';
   grid-template-columns: repeat(2, 1fr);
   padding: 0;
   min-height: calc(100vh - 60px); }
@@ -175,69 +174,74 @@ main {
         transition: all 0.3s ease-out; }
       main .icons a i {
         margin-bottom: 1rem; }
-  main .Timeline {
-    visibility: hidden; }
-  main#home h1 {
-    margin-top: 20vh; }
-
-.about-info {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
-  grid-template-columns: repeat(3, 1fr); }
 
 .blockquote {
   grid-area: blockquote;
-  display: inline;
-  font-style: oblique 50deg;
-  font-size: 20px;
-  column-gap: 20px;
-  color: #373737; }
-  .blockquote blockquote::before {
-    content: open-quote; }
-  .blockquote blockquote::after {
-    content: close-quote; }
+  max-width: 490px;
+  padding: 30px 20px; }
   .blockquote blockquote {
+    font-size: 20px;
+    border-left: 10px solid #ccc;
+    margin: .5em 10px;
+    padding: 0 10px;
+    quotes: "“" "”" "‘" "’";
+    padding: 10px 20px;
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: Georgia, 'Times New Roman', Times, serif; }
+  .blockquote blockquote:before {
+    content: open-quote;
+    display: inline;
+    height: 0;
+    line-height: 0;
+    left: -10px;
+    position: relative;
+    top: 30px;
+    color: #ccc;
+    font-size: 3em; }
+  .blockquote p {
+    margin: 0; }
+  .blockquote footer {
     margin: 0;
-    quotes: "“" "”" "‘" "’"; }
+    text-align: right;
+    font-size: 1em;
+    font-style: italic; }
+
+.learn {
+  grid-area: learn;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 25%;
+  margin-top: -3rem; }
+  .learn a {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 400;
+    color: cadetblue;
+    padding: 0px 20px; }
+    .learn a:hover {
+      color: #CC8686;
+      text-decoration: underline;
+      font-weight: 600; }
 
 #main-footer {
-  text-align: center;
+  text-align: initial;
   padding: 0.19rem;
   position: fixed;
   width: 100%;
-  background: #bbb;
-  color: #373737;
+  background: #cccccc;
+  color: #000;
   height: 25px;
   bottom: 0;
   font-size: 12px; }
 
-.boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 1rem; }
-  .boxes div {
-    font-size: 2rem;
-    border: 3px #fff solid;
-    padding: 1.5rem 2.5rem;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease-out; }
-    .boxes div:hover {
-      padding: 0.5rem 1.5rem;
-      background: #8a3de2;
-      color: #000; }
-      .boxes div:hover span {
-        color: #000; }
-
 #about {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: 'headings headings' 'texts texts' 'worklogo worklist' 'studylogo studylist' 'CVlink CVlink';
+  grid-template-areas: 'headings headings' 'texts texts' 'worklogo worklist' 'studylogo studylist' 'CVlink CVlink' 'contactnav contactnav';
   grid-template-columns: repeat(2, 1fr);
-  margin-right: 17rem;
-  margin-left: 5rem;
+  margin-right: 15rem;
+  margin-left: 3rem;
   text-align: justify; }
 
 .texts {
@@ -245,15 +249,13 @@ main {
   font-weight: 400; }
 
 hr {
-  width: 220%;
+  width: 100%;
   height: 1px;
   border: 0;
   border-top: 1px solid rgba(212, 211, 211, 0.795);
-  color: #8a3de2;
-  margin-bottom: 120px;
-  margin-top: 10px;
-  margin-left: 50px;
-  margin-right: 50px; }
+  color: cadetblue;
+  margin-bottom: 50px;
+  margin-top: 4rem; }
 
 .work-logo {
   grid-area: worklogo;
@@ -262,20 +264,18 @@ hr {
   align-items: center;
   text-align: center;
   width: 70%;
-  height: 850px;
+  height: 100%;
   background: #CC8686;
   color: #000;
   font-size: 40px;
   font-weight: 500;
-  margin-top: -30px;
   margin-bottom: 0;
   margin-left: 20%; }
 
 .work-list {
   grid-area: worklist;
-  margin-right: -15%;
-  margin-left: 10%;
-  margin-top: 3%; }
+  margin-left: 5%;
+  margin-top: 5%; }
 
 .company {
   color: #eb4076;
@@ -297,7 +297,7 @@ hr {
   align-items: center;
   text-align: center;
   width: 70%;
-  height: 500px;
+  height: 100%;
   background: #B19D99;
   color: #000;
   font-size: 40px;
@@ -308,7 +308,8 @@ hr {
 .study-list {
   grid-area: studylist;
   margin-top: 10%;
-  margin-left: 10%; }
+  margin-left: 5%;
+  text-align: initial; }
 
 .school-name {
   color: cadetblue;
@@ -324,26 +325,43 @@ hr {
   margin-bottom: 3rem; }
 
 .cv {
-  grid-area: CVlink; }
-  .cv hr {
-    width: 110%;
-    margin-bottom: 100px;
-    margin-top: 40px; }
+  grid-area: CVlink;
+  margin-left: 100px;
+  padding-left: 5rem; }
 
 .CVlink {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10%;
+  left: 50%;
+  margin-bottom: 5%;
   background: #373737;
-  width: 30%;
+  width: 20rem;
   height: 100px;
-  color: #f1eff3;
-  margin-left: 45%;
+  color: #f2f2f2;
+  margin-left: 40%;
   transition: all 0.3s ease-out; }
   .CVlink:hover {
-    padding: 0.5rem 1.5rem;
-    background: #8a3de2; }
+    background: #8a3de2;
+    width: 22rem;
+    height: 110px; }
+
+.contactnav {
+  grid-area: contactnav;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 45%;
+  margin-bottom: 5rem; }
+  .contactnav a {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 400;
+    color: cadetblue;
+    padding: 0px 20px; }
+    .contactnav a:hover {
+      color: #CC8686;
+      text-decoration: underline;
+      font-weight: 600; }
 
 #contact {
   display: grid;
@@ -379,13 +397,13 @@ label {
 input[type=submit] {
   background-color: #8a3de2;
   color: white;
-  padding: 20px 10px;
+  padding: 20px 40px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
   margin-bottom: 25%;
-  margin-left: 16rem; }
+  margin-left: 35%; }
 
 input[type=submit]:hover {
   background-color: #5818a1; }
@@ -398,52 +416,160 @@ input[type=submit]:hover {
   padding: 20px; }
 
 @media screen and (min-width: 1171px) {
-  .projects {
-    grid-template-columns: repeat(4, 1fr); }
-  .headings {
-    margin-left: 100px; } }
-
-@media screen and (min-width: 901px) and (max-width: 1170px) {
   .headings {
     margin-left: 100px; }
     .headings h1 {
       line-height: 6rem;
-      margin-bottom: 2.5rem; }
-  .Photo_slides {
+      margin-bottom: 2.5rem; } }
+
+@media screen and (min-width: 901px) and (max-width: 1170px) {
+  .headings {
+    margin-left: 10%; }
+    .headings h1 {
+      line-height: 6rem;
+      margin-bottom: 2.5rem;
+      margin-top: 4rem; }
+    .headings .lg-heading {
+      font-size: 4.5rem;
+      margin-bottom: 1rem; }
+    .headings .sm-heading {
+      font-size: 1.2rem;
+      margin-top: 1rem; }
+  main .Photo_slides {
     align-items: center; }
-    .Photo_slides .Slide .photo > p {
-      padding: 100px 160px; }
-  .projects {
-    grid-template-columns: repeat(3, 1fr); } }
+    main .Photo_slides .Slide {
+      margin-top: 10%; }
+      main .Photo_slides .Slide .photo > p {
+        padding: 180px 120px; }
+  main .blockquote {
+    margin-top: -1rem; }
+    main .blockquote blockquote {
+      font-size: 1.2rem; }
+  .learn {
+    margin-top: 0.3rem; }
+  #about {
+    margin-right: 8rem;
+    margin-left: 1rem; }
+  .contact-table {
+    margin-left: -10rem; } }
 
 @media screen and (max-width: 900px) {
+  .headings {
+    margin-right: 12%; }
+    .headings .lg-heading {
+      font-size: 5rem; }
+    .headings .sm-heading {
+      font-size: 1.2rem; }
+  .blockquote {
+    padding: 5px;
+    margin-left: 10%; }
+  .learn {
+    margin-left: 32%;
+    margin-top: 1rem;
+    margin-bottom: 3rem; }
   .menu .nav-link {
-    font-size: 12px; }
+    font-size: 15px;
+    font-weight: 500; }
   main {
-    grid-template-areas: "headings" "photo_slides" "dots";
+    grid-template-areas: "headings" "photo_slides" "dots" "learn";
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
     text-align: center; }
     main .lg-heading {
       line-height: 1;
-      margin-bottom: 1rem; }
+      margin-bottom: 1rem;
+      margin-top: 8rem; }
+    main .sm-heading {
+      padding-left: 0; }
     main .Photo_slides {
       align-items: center;
-      padding-top: 0; }
+      padding-top: 20px; }
       main .Photo_slides .Slide .photo > p {
         padding: 120px 180px; }
   .blockquote {
     position: static; }
-  .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
-    grid-template-columns: 1fr; }
-  .projects {
-    grid-template-columns: repeat(2, 1fr); } }
+  #about {
+    margin-left: 2rem;
+    margin-right: 2rem; }
+    #about .contactnav {
+      margin-left: 17%; }
+  .study-list {
+    text-align: initial; }
+  .CVlink {
+    margin-left: 5vh; }
+  #contact .headings {
+    margin-left: 20%; }
+  .contact-table {
+    margin-left: -15rem; }
+  input[type=submit] {
+    margin-left: 1rem; } }
 
 @media screen and (max-width: 500px) {
   .menu .nav-link {
     padding: 0 0.5rem; }
   main#home h1 {
-    margin-top: 15vh; }
-  .projects {
-    grid-template-columns: 1fr; } }
+    margin-top: 3rem; }
+  main .headings {
+    padding: 0;
+    margin: 0; }
+    main .headings .lg-heading {
+      font-size: 55px; }
+    main .headings .sm-heading {
+      font-size: 1rem; }
+  .learn {
+    margin-left: 22%; }
+  #about {
+    width: 83%;
+    grid-template-areas: 'headings' 'texts' 'worklogo' 'worklist' 'studylogo' 'studylist' 'CVlink' 'contactnav';
+    grid-template-columns: 1fr;
+    margin-left: 3rem; }
+    #about .texts {
+      font-size: 1rem; }
+    #about .work-logo, #about .study-logo {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      text-align: center;
+      margin-left: 0;
+      width: 100%; }
+    #about .work-list, #about .study-list {
+      margin-left: 0; }
+    #about .study-list {
+      margin-top: 10px; }
+    #about .cv {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 0;
+      padding: 0; }
+      #about .cv hr {
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%; }
+      #about .cv a {
+        margin-top: 50px;
+        margin-left: -1rem; }
+      #about .cv .contactnav {
+        margin-left: -3rem;
+        margin-bottom: 0; }
+        #about .cv .contactnav a {
+          margin: 25px; }
+    #about .icons {
+      margin-left: -1rem; }
+  hr {
+    margin-top: 40px;
+    margin-bottom: 0; }
+  main .icons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%; }
+    main .icons a {
+      padding: 1rem; }
+  #contact .icons {
+    margin-left: 13%; }
+  #home .icons {
+    margin-left: -1rem; }
+  #home .headings {
+    padding: 5rem 2.5rem; }
+  .contact-table {
+    margin-left: -22rem; } }

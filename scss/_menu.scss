@@ -29,12 +29,12 @@
         
         @include easeOut;
         &.current > a {
-            color: $color2;
+            color: $color1;
             text-decoration: underline;
         } 
         
         &:hover {
-            background: $color2;
+            background: $color1;
         } 
     } 
 
@@ -45,7 +45,7 @@
         padding: 0 1rem;
         text-transform: capitalize;
         font-weight: 350;
-        color: $color3;
+        color: $color5;
         text-decoration: none;
         @include easeOut; 
 

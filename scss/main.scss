@@ -5,7 +5,7 @@
 }
  
 body {
-    background-color: $color1;
+    background-color: $color5;
     color:set-text-color($color1); 
     height: 100%; 
     width: 100%;
@@ -18,16 +18,17 @@ body {
 h1,
 h2 {
     margin:0;
-    font-weight: 500;
 
     &.lg-heading {
         margin-top: 5rem;
         font-size: 6rem;
+        
     }
 
     &.sm-heading {
         margin-bottom: 2rem;
         padding:0.2rem 1rem;
+        
     }
 }
 
@@ -44,17 +45,19 @@ header{
 }
 
 .text-secondary {
-    color:$color2;
+    color:$color1;
 }
 
 
 
 main{
     display: grid;
-    grid-gap: 0rem;
+    min-height: calc(100vh - 60px);
     grid-template-areas: 
     'headings photo_slides' 
-    'blockquote dots' ;
+    'headings dots'
+    'learn learn' ;
+
     grid-template-columns: repeat(2, 1fr);
     padding: 0; 
 
@@ -169,9 +172,9 @@ main{
             
             padding: 2rem;
             line-height: 1rem;
-            color: lighten($color2, 25);             
+            color: lighten($color1, 25);             
             &:hover {
-                color: $color2;
+                color: $color1;
                 @include easeOut();                
             }
             i{margin-bottom: 1rem;}
@@ -179,89 +182,94 @@ main{
         }
 
     }
-    .Timeline {
-        visibility: hidden;
-    }
-    &#home{
-        //overflow: hidden;
-        h1 {
-            margin-top:20vh;
-        }
-    }
+ 
 } 
-
-.about-info {
-    display: grid;
-    grid-gap: 30px;
-    grid-template-areas:
-        'bioimage bio bio'
-        'job1 job2 job3';
-    grid-template-columns: repeat(3, 1fr);
-    
-}
-
 
 .blockquote {
     grid-area: blockquote;
-    display: inline;
-    font-style: oblique 50deg;
-    font-size: 20px;    
-    column-gap: 20px;
-    color: $color4;
+    max-width: 490px;
+    padding: 30px 20px;
+    
+    blockquote{
+        font-size: 20px;
+        border-left: 10px solid #ccc;
+        margin: .5em 10px;
+        padding: 0 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        padding: 10px 20px;
+        line-height: 1.4;
+        font-weight: 300;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+       
 
-    blockquote::before {
+    }
+      
+      blockquote:before {
         content: open-quote;
+        display: inline;
+        height: 0;
+        line-height: 0;
+        left: -10px;
+        position: relative;
+        top: 30px;
+        color: #ccc;
+        font-size: 3em;
+        
       }
-      blockquote::after {
-        content: close-quote;
+      
+      p{
+        margin: 0;
       }
-    blockquote {
+      
+      footer{
         margin:0;
-        quotes: "“" "”" "‘" "’";
+        text-align: right;
+        font-size: 1em;
+        font-style: italic;
+      }
+    
+ 
+}
+
+
+.learn{
+    grid-area: learn;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 25%;
+    margin-top: -3rem;
+    
+    a {
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: 400;
+        color: $color2;
+        padding: 0px 20px;
+
+        &:hover {
+            color:$color3;            
+            text-decoration: underline; 
+            font-weight:600;  
+            
+                    
+        }
     }
     
 }
 
-
  
 #main-footer {
-    text-align: center;
-    
+    text-align: initial;    
     padding: 0.19rem;
     position: fixed; 
     width: 100%;
-    background: $color3;
-    color: $color4;
+    background: darken($color5, 15);
+    color: set-text-color($color1);
     height: 25px;
     bottom: 0;
     font-size: 12px;
 }
 
-// Contact Page
-.boxes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 1rem;
-
-    div {
-        font-size: 2rem;
-        border: 3px #fff solid;
-        padding: 1.5rem 2.5rem;
-        margin-bottom: 3rem;
-        @include easeOut;
-        &:hover {
-            padding: 0.5rem 1.5rem;
-            background: $color2;
-            color: set-text-color($color2);
-            span {
-                color:set-text-color($color2);
-            }
-        }
-    }
-
-}
 
 @import 'about'; 
 @import 'contact';

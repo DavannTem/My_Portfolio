@@ -1,15 +1,5 @@
 // Widescreens
 @include mediaXl {
-    .projects { 
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .headings{
-        margin-left: 100px;
-    }
-}
-
-// Desktops & Laptops
-@include mediaLg {
     .headings{
         margin-left: 100px;
         h1{
@@ -17,49 +7,105 @@
             margin-bottom: 2.5rem;
         }
     }
+
+}
+
+// Desktops & Laptops
+@include mediaLg {
+    .headings{
+        margin-left: 10%;
+    
+        h1{
+            line-height: 6rem;
+            margin-bottom: 2.5rem;
+            margin-top: 4rem;
+            
+        }
+        .lg-heading{
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+        }
+        .sm-heading{
+            font-size: 1.2rem;
+            margin-top: 1rem;}
+
+    }
+    main{
     .Photo_slides {
         align-items: center;
-        //padding-bottom: 160px;  
-        //padding-top: 0;
+        
+        
     .Slide{
-        //margin-bottom: 160px;
-        .photo > p{
-            padding: 100px 160px;
+        margin-top: 10%;
+        .photo>p{
+            padding: 180px 120px;
         }
-    }}
-    .projects { 
-        grid-template-columns: repeat(3, 1fr);
+     }  
+    }
+    .blockquote{
+        margin-top: -1rem;
+        blockquote{
+            font-size: 1.2rem;}
+    }
+}
+    .learn{
+        margin-top: 0.3rem;
     }
 
+    #about{
+        margin-right: 8rem;
+        margin-left: 1rem;
+    }
+    .contact-table{
+        margin-left: -10rem;
+    }
     
+
+
 }
+
+
 
 // Tablet & Small Laptops
 @include mediaMd {
-    body{
-       // position: relative;
+    .headings{
+        margin-right: 12%;
+        .lg-heading{font-size: 5rem;}
+        .sm-heading{font-size: 1.2rem;}
+    }
+    .blockquote{
+        padding: 5px ;
+        margin-left: 10%;
+    }
+    .learn{
+        margin-left: 32%;
+        margin-top: 1rem;
+        margin-bottom: 3rem
         
     }
     .menu .nav-link {
-        font-size: 12px;   
+        font-size: 15px;  
+        font-weight: 500; 
     }
     main {
-        grid-template-areas: 'headings''photo_slides''dots';
+        grid-template-areas: 'headings''photo_slides''dots' 'learn';
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
         text-align: center;
         .lg-heading {
             line-height: 1;
             margin-bottom: 1rem;
+            margin-top: 8rem;
+        }
+        .sm-heading {
+            padding-left: 0;
         }
 
         .Photo_slides {
-            align-items: center;
-            //padding-bottom: 160px;  
-            padding-top: 0;
+            align-items: center;             
+            padding-top: 20px;
             
-            .Slide{
-                //margin-bottom: 160px;
+            .Slide{                
                 .photo > p{
                     padding: 120px 180px;
                 }
@@ -72,22 +118,38 @@
         position:static;
     }
     
+    #about{
+        margin-left: 2rem;
+        margin-right: 2rem;
+        .contactnav{
+            margin-left: 17%;
+        }
 
-   
-    .about-info {
-        grid-template-areas:
-         'bioimage'
-         'bio'
-         'job1'
-         'job2'
-         'job3';
+        }
+    
+        .study-list{
+            text-align: initial;
+        }
+        
 
-         grid-template-columns: 1fr;
+        .CVlink{
+            margin-left: 5vh;
+            
+        }
+    #contact{
+        .headings{
+            margin-left: 20%;
+        }
+    }
+    .contact-table{
+        margin-left: -15rem;
+    }
+    input[type=submit] {
+        margin-left: 1rem;
     }
 
-    .projects { 
-        grid-template-columns: repeat(2, 1fr);
-    }
+
+
 }  
 
 // Smartphones
@@ -96,10 +158,95 @@
         padding: 0 0.5rem ;
     }
     main#home h1 {
-        margin-top: 15vh;
+        margin-top: 3rem;
+    
+    }
+    main{
+        .headings{
+            padding: 0;
+            margin:0 ;
+        .lg-heading{font-size: 55px;}
+        .sm-heading{font-size: 1rem;}
+        }
+    }
+    .learn{
+        margin-left:22%;
+    }
+    #about{
+        width:83%;
+        .texts{font-size: 1rem;}       
+        
+        grid-template-areas: 'headings' 'texts' 'worklogo' 'worklist' 'studylogo' 'studylist' 'CVlink' 'contactnav';
+        grid-template-columns: 1fr;
+        margin-left: 3rem;
+        
+        .work-logo, .study-logo {
+            padding-top:30px;
+            padding-bottom:30px;
+            text-align: center;
+            margin-left:0;
+            width: 100%;
+        }
+
+        .work-list, .study-list{
+            margin-left: 0;
+        }
+        .study-list{margin-top:10px;}
+        .cv{   
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            margin-left: 0;
+            padding:0;
+            hr{margin-left:0; margin-top:0; width:100%;}
+            a{margin-top:50px;margin-left: -1rem}
+            .contactnav { 
+               margin-left: -3rem;
+               margin-bottom: 0;
+               a {
+                   margin:25px;
+               }
+            }
+        }
+        .icons{
+            margin-left:-1rem;
+            }
+    }   
+    
+    hr{
+        margin-top: 40px;
+        margin-bottom: 0;
+    }
+    
+    main{
+        .icons {
+        position: relative;
+        display: flex; 
+        justify-content: center;
+        width: 100%;
+        
+        a{
+            padding: 1rem;
+        }
+     }
+    }
+    #contact{
+        .icons{
+            margin-left: 13%;
+        }
+        //.headings{margin-left: 35%}
     }
 
-    .projects { 
-        grid-template-columns: 1fr;
+    #home{
+        .icons{
+            margin-left:-1rem;
+        }
+        .headings{
+        padding: 5rem 2.5rem;
+        }
     }
+    .contact-table{
+        margin-left: -22rem;
+    }
+
 } 
